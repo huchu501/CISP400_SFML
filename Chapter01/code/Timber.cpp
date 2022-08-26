@@ -3,6 +3,7 @@
 
 // Make code easier to type with "using namespace"
 using namespace sf;
+using namespace std;
 
 int main()
 {
@@ -10,7 +11,7 @@ int main()
 	VideoMode vm(1920, 1080);
 
 	// Create and open a window for the game
-	RenderWindow window(vm, "Timber!!!", Style::Fullscreen);
+	RenderWindow window(vm, "Timber!!!", Style::Default);
 
 	// Create a texture to hold a graphic on the GPU
 	Texture textureBackground;
@@ -25,7 +26,7 @@ int main()
 	spriteBackground.setTexture(textureBackground);
 
 	// Set the spriteBackground to cover the screen
-	spriteBackground.setPosition(0, 0);
+	spriteBackground.setPosition(0, 0); //(0, 0) is the top left corner in graphics
 
 
 	while (window.isOpen())
