@@ -288,7 +288,7 @@ int main()
 
 				score++;
 				// Add to the amount of time remaining
-				timeRemaining += (2 / score) + .15;
+				timeRemaining += (2.0 / score) + .15;
 				spriteAxe.setPosition(AXE_POSITION_LEFT,
 					spriteAxe.getPosition().y);
 				spritePlayer.setPosition(580, 720);
