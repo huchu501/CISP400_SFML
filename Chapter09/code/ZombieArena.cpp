@@ -182,8 +182,8 @@ int main()
 			{
 				// Prepare thelevel
 				// We will modify the next two lines later
-				arena.width = 2500;
-				arena.height = 2500;
+				arena.width = 500;
+				arena.height = 500;
 				arena.left = 0;
 				arena.top = 0;
 
