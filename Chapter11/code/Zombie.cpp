@@ -47,11 +47,17 @@ void Zombie::spawn(float startX, float startY, int type, int seed)
 	modifier /= 100; // Now equals between .7 and 1
 	m_Speed *= modifier;
 
+	// initialize its location
 	m_Position.x = startX;
 	m_Position.y = startY;
 
+	// set its origin to center
 	m_Sprite.setOrigin(25, 25);
+	// set its position
 	m_Sprite.setPosition(m_Position);
+
+	// LINUX BUG FIX - INITIALIZE BOOLEAN VARIABLES TO TRUE
+	m_Alive = true;
 }
 
 bool Zombie::hit()
