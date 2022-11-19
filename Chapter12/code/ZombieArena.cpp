@@ -188,11 +188,15 @@ int main()
 	healthBar.setFillColor(Color::Red);
 	healthBar.setPosition(450, 980);
 
-	// When did we last update the HUD?
+	/*// When did we last update the HUD?
 	int framesSinceLastHUDUpdate = 0;
 
 	// How often (in frames) should we update the HUD
-	int fpsMeasurementFrameInterval = 1000;
+	int fpsMeasurementFrameInterval = 100;*/
+
+	// this code updates the HUD faster and better
+	float msSinceLastHUDUpdate = 0;
+	float msHUDFrameInterval = 1000;
 
 	// The main game loop
 	while (window.isOpen())
@@ -534,13 +538,19 @@ int main()
 
 			}
 
-			// size up the health bar
+			// CHAPTER 12
+			// Size up the health bar
 			healthBar.setSize(Vector2f(player.getHealth() * 3, 70));
 
 			// Increment the number of frames since the last HUD calculation
-			framesSinceLastHUDUpdate++;
+			//framesSinceLastHUDUpdate++;
+
+			// code for better HUD frame update
+			msSinceLastHUDUpdate += dt.asMilliseconds();
+
 			// Calculate FPS every fpsMeasurementFrameInterval frames
-			if (framesSinceLastHUDUpdate > fpsMeasurementFrameInterval)
+			//if (framesSinceLastHUDUpdate > fpsMeasurementFrameInterval)
+			if (msSinceLastHUDUpdate > msHUDFrameInterval)
 			{
 
 				// Update game HUD text
@@ -571,7 +581,8 @@ int main()
 				zombiesRemainingText.setString(ssZombiesAlive.str());
 
 				// clear the reset the frame count to 0
-				framesSinceLastHUDUpdate = 0;
+				//framesSinceLastHUDUpdate = 0;
+				msSinceLastHUDUpdate = 0;
 			}// End HUD update
 
 
